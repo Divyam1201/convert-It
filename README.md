@@ -15,7 +15,7 @@ Usage:
 
 To use the Universal Converter:
 
-- Select Unit Types: Choose the type of unit you want to convert from and to. For example, if you want to convert length, select "Length" as both the input and output unit types.
+- Select Unit Types: Choose the type of unit you want to convert from and to. For example, if you want to convert length, select "Length" and then select the input such as "meter" and output as "cm" types.
 
 - Enter Value: Input the numerical value you wish to convert in the provided field.
 
