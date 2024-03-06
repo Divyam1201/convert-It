@@ -52,7 +52,7 @@ npm install
 - Start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 - Open your web browser and visit http://localhost:3000 to access the Universal Converter.
 
