@@ -36,7 +36,7 @@ To run this project locally, follow these steps:
 - Clone this repository:
 
 ```bash
-  git clone https://github.com/your-username/universal-converter.git
+  git clone https://github.com/Divyam1201/convert-It.git
 
 ```
 - Navigate into the project directory:
