@@ -11,14 +11,13 @@ const Conversions = () => {
     const availabelConversions = convert().measures()
     const [canConvertedto, setCanconvertedto] = useState(null)
     const [conversions, setConversions] = useState({first: "----Select a unit for conversion----",second:"----Select a unit to convert from----",third:"----Select a unit to convert to----"})
-    // const [conversionFrom, setConversionfrom] = useState( )
-    // const [conversionTo, setConversionto] = useState("----Select a unit to convert to----")
-    // const [curval, setCurval] = useState(null)
+    const [disabledval,setDisabledval] = useState(true)
     const [values, setValues] = useState({inputval:"",resultval:""})
 
     const handleFirstChange = (param) => {
       setConversions({first:param,second: "----Select a unit to convert from----",third:"----Select a unit to convert to----"});
       setValues({inputval:"",resultval:""})
+      setDisabledval(false)
     };
   
     const handleSecondChange = (param) => {
@@ -57,14 +56,14 @@ const Conversions = () => {
       {/* ===============Second selectBox==============================  */}
       <div className='mb-4 sm:mb-0'>
       <h3 className='mb-1'>Select a type of unit to convert from</h3>
-      <Conversionoptions  child={conversions.second}  availabelConversions={canConvertedto} handleSecondChange={handleSecondChange} selectionType={"second"}></Conversionoptions>
+      <Conversionoptions  child={conversions.second}  availabelConversions={canConvertedto} handleSecondChange={handleSecondChange} selectionType={"second"} disabledval={disabledval}></Conversionoptions>
       </div>
       
 
       {/* ===============Third selectBox==============================  */}
       <div>
       <h3 className='mb-1'>Select a type of unit to convert to</h3>
-      <Conversionoptions child={conversions.third} availabelConversions={canConvertedto} handleThirdChange={handleThirdChange} selectionType={"third"}></Conversionoptions>
+      <Conversionoptions child={conversions.third} availabelConversions={canConvertedto} handleThirdChange={handleThirdChange} selectionType={"third"} disabledval={disabledval}></Conversionoptions>
       </div>
       </section>
 
@@ -93,7 +92,7 @@ const Conversions = () => {
       <button className="border-2 border-white px-3 py-1 bg-amber-600 text-white rounded-xl" onClick={()=>{
         try{
           let convertedVal=Number(convert(Number(values.inputval)).from(conversions.second).to(conversions.third))
-          if (isNaN(convertedVal))
+          if (isNaN(convertedVal) || convertedVal===0)
           { throw error;
           }
           handleResult(convertedVal)

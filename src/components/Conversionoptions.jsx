@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Conversionoptions = ({ child, availabelConversions ,convert,setCanconvertedto, selectionType,handleFirstChange,handleSecondChange,handleThirdChange}) => {
+const Conversionoptions = ({ child, availabelConversions ,convert,setCanconvertedto, selectionType,handleFirstChange,handleSecondChange,handleThirdChange,disabledval=false}) => {
 const handleSelectionChange=(e)=>{
   switch(selectionType){
     case "first":
@@ -21,7 +21,7 @@ const handleSelectionChange=(e)=>{
 } 
   return (
     <>
-    <select value={child} className="bg-zinc-800 rounded-md" onChange={handleSelectionChange}>
+    <select value={child} className="bg-zinc-800 rounded-md" onChange={handleSelectionChange} disabled={disabledval}>
         <option>{child}</option>
       {availabelConversions?availabelConversions.filter(i=>(i!=child)).map((item,index)=>(<option  className='hover:bg-orange-600 hover:text-orange-100 cursor-pointer' key={index}>{item}</option>)):null}
       </select>  
